@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="英雄联盟周免英雄查询与攻略指南。提供最新一周可免费游玩的英雄列表、出装推荐、技能加点以及克制关系分析，助你快速上分。">
+    <meta name="keywords" content="英雄联盟周免,LOL周免,LOL免费英雄,英雄联盟出装,LOL攻略">
+    <title>英雄联盟周免-最新一周免费英雄查询与攻略</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c89b3c;
+            --secondary-color: #1a1a1a;
+            --accent-red: #e74646;
+            --accent-blue: #4ca2ff;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #aaaaaa;
+            --border-color: #333333;
+            --radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(20,20,20,0.8)), url('https://picsum.photos/seed/lolhero/1600/600') center/cover;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-date {
+            display: inline-block;
+            background: rgba(200, 155, 60, 0.15);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(200, 155, 60, 0.3);
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background-color: var(--bg-card);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-sub);
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: #000;
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hero Grid */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .hero-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--primary-color);
+        }
+
+        .hero-card-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background-color: #2a2a2a;
+        }
+
+        .hero-card-body {
+            padding: 16px;
+        }
+
+        .hero-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-sub);
+        }
+
+        .tag-role { background-color: rgba(76, 162, 255, 0.15); color: var(--accent-blue); }
+        .tag-diff { background-color: rgba(231, 70, 70, 0.15); color: var(--accent-red); }
+
+        .hero-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Strategy Section */
+        .strategy-section {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .strategy-col h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .strategy-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-sub);
+        }
+
+        .strategy-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            display: none;
+            padding-top: 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .strategy-grid { grid-template-columns: 1fr; }
+            .hero-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .hero-card-img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#C89B3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#C89B3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#C89B3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>LOL周免</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">英雄列表</a>
+                <a href="#">出装推荐</a>
+                <a href="#">新手指南</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-date">2023年 第42周 (10.23 - 10.30)</span>
+            <h1>本周免费英雄总览</h1>
+            <p>利用这一周的时间尝试你从未玩过的英雄，提升英雄池深度，掌握更多对线技巧，为接下来的排位赛做准备。</p>
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <div class="container filter-tabs">
+            <button class="filter-btn active">全部英雄</button>
+            <button class="filter-btn">上单</button>
+            <button class="filter-btn">打野</button>
+            <button class="filter-btn">中单</button>
+            <button class="filter-btn">ADC</button>
+            <button class="filter-btn">辅助</button>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Featured Section -->
+        <section>
+            <h2 class="section-title">本周强势推荐</h2>
+            <div class="hero-grid">
+                <!-- Card 1 -->
+                <article class="hero-card">
+                    <img src="https://picsum.photos/seed/lol1/400/500" alt="英雄头像" class="hero-card-img">
+                    <div class="hero-card-body">
+                        <h3 class="hero-card-title">菲奥娜</h3>
+                        <div class="hero-tags">
+                            <span class="tag tag-role">上单</span>
+                            <span class="tag tag-diff">高操作</span>
+                        </div>
+                        <p class="hero-card-desc">无双剑姬凭借强大的单挑能力和破甲机制，是本周不容错过的上单选择。掌握“破败之刃”时机，能瞬间融化坦克。</p>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">查看出装</button>
+                            <button class="btn btn-primary">快速上手</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="hero-card">
+                    <img src="https://picsum.photos/seed/lol2/400/500" alt="英雄头像" class="hero-card-img">
+                    <div class="hero-card-body">
+                        <h3 class="hero-card-title">嘉文四世</h3>
+                        <div class="hero-tags">
+                            <span class="tag tag-role">中单</span>
+                            <span class="tag tag-diff">团控</span>
+                        </div>
+                        <p class="hero-card-desc">皇子拥有极强的开团能力和地形控制能力，是团队节奏的发动机。利用大招“天崩地裂”分割战场，能极大改变战局。</p>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">查看出装</button>
+                            <button class="btn btn-primary">快速上手</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="hero-card">
+                    <img src="https://picsum.photos/seed/lol3/400/500" alt="英雄头像" class="hero-card-img">
+                    <div class="hero-card-body">
+                        <h3 class="hero-card-title">迦娜</h3>
+                        <div class="hero-tags">
+                            <span class="tag tag-role">辅助</span>
+                            <span class="tag tag-diff">保护型</span>
+                        </div>
+                        <p class="hero-card-desc">风女是极少数能提供群体护盾和击飞控制的治疗型辅助。她的存在能极大提升队伍的容错率，是稳健上分的优选。</p>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">查看出装</button>
+                            <button class="btn btn-primary">快速上手</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="hero-card">
+                    <img src="https://picsum.photos/seed/lol4/400/500" alt="英雄头像" class="hero-card-img">
+                    <div class="hero-card-body">
+                        <h3 class="hero-card-title">李青</h3>
+                        <div class="hero-tags">
+                            <span class="tag tag-role">打野</span>
+                            <span class="tag tag-diff">高机动</span>
+                        </div>
+                        <p class="hero-card-desc">盲僧以其高机动性和炫酷的操作著称。虽然上手难度较高，但熟练后能通过眼位布置和R技能回旋踢，主宰野区节奏。</p>
+                        <div class="card-actions">
+                            <button class="btn btn-outline">查看出装</button>
+                            <button class="btn btn-primary">快速上手</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Strategy Guide Section -->
+        <section class="strategy-section">
+            <div class="strategy-grid">
+                <div class="strategy-col">
+                    <h3>💡 使用周免英雄的技巧</h3>
+                    <ul class="strategy-list">
+                        <li><strong>熟悉技能机制：</strong> 周免英雄通常是你很少接触的，先在训练模式熟悉技能连招和伤害数值。</li>
+                        <li><strong>调整符文天赋：</strong> 每个英雄都有最适合的符文组合，不要盲目使用通用符文。</li>
+                        <li><strong>克制关系分析：</strong> 查看本周英雄的克制表，避免在BP阶段被对方针对。</li>
+                        <li><strong>出装灵活变通：</strong> 面对不同的阵容，出装顺序和核心装备需要做出相应调整。</li>
+                    </ul>
+                </div>
+                <div class="strategy-col">
+                    <h3>🛠️ 英雄池扩展建议</h3>
+                    <ul class="strategy-list">
+                        <li><strong>补足短板：</strong> 根据自己常用的位置，挑选一个自己从未玩过的位置英雄进行练习。</li>
+                        <li><strong>练习连招：</strong> 对于刺客型英雄，练习空大后的逃生技巧比单纯追求伤害更重要。</li>
+                        <li><strong>视野争夺：</strong> 尝试使用辅助英雄，学习如何通过视野控制来获取游戏优势。</li>
+                        <li><strong>心态调整：</strong> 周免英雄可能存在不熟悉的情况，保持良好的心态，享受游戏的乐趣。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question">周免英雄会延长吗？</div>
+                <div class="faq-answer">不会。周免英雄的时间是固定的，每周一（国服）凌晨刷新，请合理安排游戏时间。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">购买装备后周免还能用吗？</div>
+                <div class="faq-answer">可以。周免只限制英雄的出场，不影响你已经购买的符文、召唤师技能或装备。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何查看所有周免英雄？</div>
+                <div class="faq-answer">你可以通过游戏内的“英雄”页面查看当前可用的英雄，或者在各大LOL资讯网站上查询最新的周免列表。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 LOL周免攻略网. All Rights Reserved.</p>
+            <p style="margin-top: 8px; opacity: 0.6;">本站内容仅供学习交流使用，英雄联盟(R)及所有相关商标归Riot Games Inc.所有。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ 切换
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // 关闭其他
+                    faqItems.forEach(other => {
+                        if (other !== item) other.classList.remove('active');
+                    });
+                    // 切换当前
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 分类筛选按钮视觉效果
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
