@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="劲舞团步子大全，提供经典8步、9步及最新流行舞步教学视频与图文解析。包含新手入门指南、连招技巧、舞步记忆方法及游戏攻略。">
+    <meta name="keywords" content="劲舞团步子,劲舞团舞步,劲舞团教学,劲舞团8步,劲舞团9步,劲舞团攻略">
+    <title>劲舞团步子-经典舞步教学与连招攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #ff0055;
+            --primary-dark: #cc0044;
+            --secondary: #00e5ff;
+            --bg-body: #0f0f13;
+            --bg-card: #1a1a20;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 15, 19, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 0, 85, 0.15) 0%, rgba(0, 229, 255, 0.05) 50%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4);
+        }
+
+        /* Main Layout */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Step Grid */
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 0, 85, 0.3);
+        }
+
+        .step-thumb {
+            height: 160px;
+            background: linear-gradient(45deg, #2a2a35, #1a1a20);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .step-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .step-content {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .step-tags span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .step-link {
+            text-align: center;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+        }
+
+        .guide-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list a {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .guide-list a:hover {
+            color: var(--secondary);
+        }
+
+        .guide-list small {
+            color: #666;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            padding: 0 1rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #050507;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">AVG-步谱</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">步子大全</a></li>
+                    <li><a href="#">新手入门</a></li>
+                    <li><a href="#">连招技巧</a></li>
+                    <li><a href="#">社区交流</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>劲舞团步子<br><span>从入门到精通</span>的完整指南</h1>
+            <p>收录最全的8步、9步及流行舞步教学，提供图文解析与节奏练习方法。无论你是新手还是高玩，都能在这里找到适合你的舞步。</p>
+            <a href="#step-list" class="cta-btn">立即查看步谱</a>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="layout-grid">
+            <div class="content-area">
+                
+                <!-- Step List Section -->
+                <section id="step-list">
+                    <div class="section-header">
+                        <h2 class="section-title">热门步谱推荐</h2>
+                        <a href="#" style="font-size: 0.9rem; color: var(--secondary);">查看更多 &rarr;</a>
+                    </div>
+
+                    <div class="step-grid">
+                        <!-- Card 1 -->
+                        <article class="step-card">
+                            <div class="step-thumb">
+                                <span class="step-badge">经典</span>
+                                <img src="https://picsum.photos/seed/av8step/400/250" alt="经典8步步谱">
+                            </div>
+                            <div class="step-content">
+                                <h3 class="step-title">经典8步 (8-Step)</h3>
+                                <div class="step-meta">
+                                    <span>难度: ★☆☆☆☆</span>
+                                    <span>适用: 新手</span>
+                                </div>
+                                <div class="step-tags">
+                                    <span>基础</span><span>必学</span>
+                                </div>
+                                <p class="step-desc">游戏中最基础的步子，掌握好左右脚的交替节奏是学习所有高难度步子的基础。</p>
+                                <a href="#" class="step-link">查看详细教学 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="step-card">
+                            <div class="step-thumb">
+                                <span class="step-badge">热门</span>
+                                <img src="https://picsum.photos/seed/av9step/400/250" alt="经典9步步谱">
+                            </div>
+                            <div class="step-content">
+                                <h3 class="step-title">经典9步 (9-Step)</h3>
+                                <div class="step-meta">
+                                    <span>难度: ★★☆☆☆</span>
+                                    <span>适用: 进阶</span>
+                                </div>
+                                <div class="step-tags">
+                                    <span>节奏</span><span>常用</span>
+                                </div>
+                                <p class="step-desc">在8步的基础上增加了转身动作，考验玩家对方向键的精准控制。</p>
+                                <a href="#" class="step-link">查看详细教学 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="step-card">
+                            <div class="step-thumb">
+                                <span class="step-badge">高阶</span>
+                                <img src="https://picsum.photos/seed/av15step/400/250" alt="高难度步谱">
+                            </div>
+                            <div class="step-content">
+                                <h3 class="step-title">高难度连招</h3>
+                                <div class="step-meta">
+                                    <span>难度: ★★★★★</span>
+                                    <span>适用: 考级</span>
+                                </div>
+                                <div class="step-tags">
+                                    <span>连击</span><span>技巧</span>
+                                </div>
+                                <p class="step-desc">包含多段位连招技巧，帮助玩家在考试中获得高分评价。</p>
+                                <a href="#" class="step-link">查看详细教学 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="step-card">
+                            <div class="step-thumb">
+                                <span class="step-badge">流行</span>
+                                <img src="https://picsum.photos/seed/avnewstep/400/250" alt="最新流行步谱">
+                            </div>
+                            <div class="step-content">
+                                <h3 class="step-title">最新流行步谱</h3>
+                                <div class="step-meta">
+                                    <span>难度: ★★★☆☆</span>
+                                    <span>适用: 比赛场</span>
+                                </div>
+                                <div class="step-tags">
+                                    <span>热门</span><span>竞技</span>
+                                </div>
+                                <p class="step-desc">当前服务器最受欢迎的比赛步子，紧跟版本更新节奏。</p>
+                                <a href="#" class="step-link">查看详细教学 &rarr;</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Beginner Guide -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">新手入门指南</h2>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <h3 style="color:white; margin-bottom: 0.5rem;">如何快速记忆步子？</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">很多玩家在考试时容易卡步，这里有几个实用的小技巧：</p>
+                        <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text-muted);">
+                            <li style="margin-bottom: 0.5rem;"><strong>听节奏：</strong> 不要只看屏幕，闭上眼睛听音乐的重音，重音通常是关键动作。</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>分段练习：</strong> 将一个长步子拆分为几个小节，逐段攻克后再合并。</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>固定姿势：</strong> 保持身体重心平稳，不要在原地大幅度晃动。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">常见问题 (FAQ)</h2>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">8步和9步的区别是什么？</div>
+                            <div class="faq-answer">8步是最基础的四拍节奏循环，9步在8步的基础上多了一拍动作，通常涉及转身或跳跃，节奏感更强。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">考试时总是按错方向怎么办？</div>
+                            <div class="faq-answer">建议先在练习模式中反复练习基础步子，熟悉每个方向键对应的身体动作，建立肌肉记忆。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">哪里可以下载最新的步谱？</div>
+                            <div class="faq-answer">本站提供最新的步谱图文解析和教学视频，无需下载软件即可在线学习。</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Search Widget -->
+                <div class="sidebar-widget">
+                    <h4 class="sidebar-title">步谱搜索</h4>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="text" placeholder="输入步子名称..." style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #333; background: #0f0f13; color: white;">
+                        <button style="padding: 8px 12px; background: var(--primary); border: none; border-radius: 4px; color: white; cursor: pointer;">搜索</button>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="sidebar-widget">
+                    <h4 class="sidebar-title">热门标签</h4>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">8步</a>
+                        <a href="#" class="tag">9步</a>
+                        <a href="#" class="tag">12步</a>
+                        <a href="#" class="tag">15步</a>
+                        <a href="#" class="tag">连招</a>
+                        <a href="#" class="tag">考试</a>
+                        <a href="#" class="tag">技巧</a>
+                        <a href="#" class="tag">休闲</a>
+                    </div>
+                </div>
+
+                <!-- Guide List -->
+                <div class="sidebar-widget">
+                    <h4 class="sidebar-title">推荐阅读</h4>
+                    <ul class="guide-list">
+                        <li>
+                            <a href="#">如何提高连击数？</a>
+                            <small>技巧攻略 · 1.2k 阅读</small>
+                        </li>
+                        <li>
+                            <a href="#">考试评分标准详解</a>
+                            <small>规则说明 · 890 阅读</small>
+                        </li>
+                        <li>
+                            <a href="#">新手必学的3个技巧</a>
+                            <small>入门教程 · 2.5k 阅读</small>
+                        </li>
+                        <li>
+                            <a href="#">不同版本的步子区别</a>
+                            <small>版本对比 · 1.1k 阅读</small>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">AVG-步谱</div>
+                    <p>专注于劲舞团游戏的舞步教学与攻略分享，为玩家提供最实用的步谱资源。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <a href="#">步谱大全</a>
+                    <a href="#">新手教程</a>
+                    <a href="#">考试攻略</a>
+                    <a href="#">连招技巧</a>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <a href="#">网站简介</a>
+                    <a href="#">联系方式</a>
+                    <a href="#">免责声明</a>
+                    <a href="#">用户协议</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 AVG-步谱网. All rights reserved. 本站仅供学习交流使用.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
