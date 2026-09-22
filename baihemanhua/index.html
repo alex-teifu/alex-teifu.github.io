@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="百合漫画 - 深度解析百合文化、精选热门百合漫画推荐、作者作品介绍及阅读指南，为您提供最优质的二次元百合内容体验。">
+    <meta name="keywords" content="百合漫画, 青梅竹马, 恋爱喜剧, GL漫画, 女性向漫画, 漫画推荐">
+    <title>百合漫画 - 热门百合作品推荐与阅读指南</title>
+    <style>
+        :root {
+            --primary-color: #e91e63;
+            --primary-hover: #d81b60;
+            --secondary-color: #f8bbd0;
+            --bg-color: #fff0f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(233, 30, 99, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .hero-main {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: #333;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
+
+        .hero-main img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-main:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-tag {
+            background: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-desc {
+            font-size: 14px;
+            opacity: 0.9;
+            max-width: 80%;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-card {
+            flex: 1;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s;
+        }
+
+        .side-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .side-card img {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .side-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .side-info p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* 分类标签 */
+        .category-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab {
+            padding: 8px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active, .tab:hover {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        /* 漫画列表 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .manga-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .manga-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rating {
+            color: #ffc107;
+        }
+
+        /* 专题/精选区 */
+        .featured-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .featured-text h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .featured-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .featured-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .featured-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* 作者/标签云 */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: white;
+            border: 1px solid #eee;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #f5f5f5;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: #999;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-main {
+                height: 250px;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                </svg>
+                <span>百合漫画</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门连载</a>
+                <a href="#">完结推荐</a>
+                <a href="#">作者专栏</a>
+                <a href="#">排行榜</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索漫画...">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="hero-main">
+                <img src="https://picsum.photos/seed/manga1/800/400" alt="精选封面">
+                <div class="hero-content">
+                    <span class="hero-tag">本周重磅推荐</span>
+                    <h1 class="hero-title">纯白之恋：青春的悸动与告白</h1>
+                    <p class="hero-desc">一段发生在樱花树下的纯美故事，讲述了两位性格迥异的高中生如何在校园生活中发现彼此的心意。画风细腻，情感真挚，是百合漫画爱好者的必读之作。</p>
+                    <a href="#" class="btn">立即阅读</a>
+                </div>
+            </div>
+            <div class="hero-side">
+                <div class="side-card">
+                    <img src="https://picsum.photos/seed/manga2/100/150" alt="封面">
+                    <div class="side-info">
+                        <h4>初恋回响</h4>
+                        <p>8.9分 · 已完结</p>
+                    </div>
+                </div>
+                <div class="side-card">
+                    <img src="https://picsum.photos/seed/manga3/100/150" alt="封面">
+                    <div class="side-info">
+                        <h4>双生花</h4>
+                        <p>9.1分 · 更新中</p>
+                    </div>
+                </div>
+                <div class="side-card">
+                    <img src="https://picsum.photos/seed/manga4/100/150" alt="封面">
+                    <div class="side-info">
+                        <h4>午后红茶</h4>
+                        <p>8.5分 · 已完结</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <div class="tab active">全部</div>
+            <div class="tab">校园恋爱</div>
+            <div class="tab">职场恋情</div>
+            <div class="tab">百合喜剧</div>
+            <div class="tab">奇幻冒险</div>
+            <div class="tab">虐心向</div>
+            <div class="tab">治愈系</div>
+        </div>
+
+        <!-- 热门推荐 -->
+        <section class="section-header">
+            <h2 class="section-title">热门连载</h2>
+            <a href="#" style="color: var(--primary-color); font-size: 14px;">查看更多 &rarr;</a>
+        </section>
+
+        <div class="grid-container">
+            <article class="manga-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/girl1/300/420" alt="封面">
+                    <div class="card-overlay">
+                        <a href="#" class="play-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">甜蜜的陷阱</h3>
+                    <div class="card-meta">
+                        <span>连载中</span>
+                        <span class="rating">★ 9.2</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="manga-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/girl2/300/420" alt="封面">
+                    <div class="card-overlay">
+                        <a href="#" class="play-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">转生成为校花</h3>
+                    <div class="card-meta">
+                        <span>连载中</span>
+                        <span class="rating">★ 8.8</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="manga-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/girl3/300/420" alt="封面">
+                    <div class="card-overlay">
+                        <a href="#" class="play-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">镜中双姝</h3>
+                    <div class="card-meta">
+                        <span>连载中</span>
+                        <span class="rating">★ 9.5</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="manga-card">
+                <div class="card-cover">
+                    <img src="https://picsum.photos/seed/girl4/300/420" alt="封面">
+                    <div class="card-overlay">
+                        <a href="#" class="play-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">无声的告白</h3>
+                    <div class="card-meta">
+                        <span>连载中</span>
+                        <span class="rating">★ 8.7</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 专题精选 -->
+        <section class="featured-section">
+            <div class="featured-grid">
+                <div class="featured-text">
+                    <h3>关于百合文化的解读</h3>
+                    <p>百合（Yuri）是指女性之间的恋爱关系。在漫画领域，百合漫画通常具有细腻的情感描写、唯美的画风以及特定的受众群体偏好。本站致力于整理和推荐高质量的百合作品。</p>
+                    <ul class="featured-list">
+                        <li>细腻的情感刻画</li>
+                        <li>独特的女性视角</li>
+                        <li>多样化的题材选择</li>
+                    </ul>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag">#青梅竹马</a>
+                        <a href="#" class="tag">#校园生活</a>
+                        <a href="#" class="tag">#职场恋情</a>
+                        <a href="#" class="tag">#BL区别</a>
+                    </div>
+                </div>
+                <div class="featured-text">
+                    <h3>新手阅读指南</h3>
+                    <p>初次接触百合漫画的读者，可以从校园题材或治愈系作品开始尝试。这类作品通常节奏舒缓，人物性格鲜明，容易代入情感。</p>
+                    <ul class="featured-list">
+                        <li>选择口碑好的连载作品</li>
+                        <li>关注作者风格是否合拍</li>
+                        <li>注意作品评级与标签</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section class="faq-section">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">百合漫画和BL漫画有什么区别？</div>
+                <div class="faq-answer">百合漫画主要描写女性之间的恋爱关系，而BL漫画主要描写男性之间的恋爱关系。两者的受众群体、画风偏好以及情感表达方式都有所不同。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">在哪里可以找到高清的百合漫画资源？</div>
+                <div class="faq-answer">本站提供正版授权的在线阅读服务，确保画质清晰且无广告干扰。您可以通过分类筛选或搜索功能找到您感兴趣的作品。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">支持哪些阅读设备？</div>
+                <div class="faq-answer">本站采用响应式网页设计，完美支持电脑浏览器、平板电脑以及各种尺寸的智能手机，随时随地享受阅读乐趣。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于百合漫画</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        专注提供优质的百合漫画推荐与在线阅读服务。我们致力于为读者发现更多优秀作品，构建一个纯净的二次元阅读社区。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">校园恋爱</a></li>
+                        <li><a href="#">职场恋情</a></li>
+                        <li><a href="#">奇幻冒险</a></li>
+                        <li><a href="#">治愈系</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">阅读指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系站长</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 12px; margin-top: 10px;">订阅我们的更新通知，不错过任何精彩内容。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 百合漫画推荐网. All Rights Reserved. 本站仅供学习交流使用.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // 简单的标签切换交互
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // FAQ 手风琴效果
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // 关闭所有
+                faqItems.forEach(i => i.classList.remove('active'));
+                // 如果刚才没打开，现在打开
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
