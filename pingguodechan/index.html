@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="苹果产地百科：详细介绍中国、美国、意大利、新西兰等全球主要苹果产区。涵盖苹果生长的地理环境、气候条件、种植历史及知名品种分布，助您了解优质苹果的来源地。">
+    <meta name="keywords" content="苹果的产地, 苹果产地, 世界苹果产区, 中国苹果, 美国苹果, 苹果种植地">
+    <title>苹果的产地-全球优质苹果产区与种植地理分布指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #3e2723;
+            --accent-color: #8d6e63;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* Region Grid */
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .region-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .region-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .region-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .region-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .region-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .region-tag {
+            display: inline-block;
+            background-color: #efebe9;
+            color: #4e342e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .region-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .region-details {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            width: 80px;
+            color: var(--text-main);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            margin-bottom: 4rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: #fafafa;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Factors Section */
+        .factors-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .factors-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .factors-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .factors-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .factors-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255,255,255,0.8);
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .factors-section {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">🍎 苹果<span>产地百科</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#china">中国产区</a></li>
+                    <li><a href="#world">全球产区</a></li>
+                    <li><a href="#factors">种植条件</a></li>
+                    <li><a href="#guide">选购指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>探寻苹果的故乡</h1>
+        <p>从北半球的寒带到温带果园，了解苹果在全球各地的生长环境、气候特点以及著名的种植区域。</p>
+    </section>
+
+    <main>
+        <p class="intro-text">
+            苹果是温带水果，对气候条件有特定要求。世界上的优质苹果主要分布在北半球的温带地区。
+            了解苹果的产地不仅能帮助我们选择更美味的果实，还能深入了解农业地理与生态学。
+        </p>
+
+        <div id="china" class="section-title">
+            <h2>中国：全球最大的苹果生产国</h2>
+            <p>中国拥有悠久的苹果种植历史，产量占全球总产量的半数以上。</p>
+        </div>
+
+        <div class="region-grid">
+            <!-- Card 1 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/shanxi/400/250" alt="陕西洛川苹果" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">陕西</span>
+                    <h3>陕西洛川</h3>
+                    <p>被誉为“中国苹果之乡”。洛川地处黄土高原，昼夜温差大，光照充足，土壤透气性好，非常适合苹果生长，产出的苹果果形端正、色泽艳丽。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>富士、嘎啦</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>果面光洁、硬度高</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/shandong/400/250" alt="山东烟台苹果" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">山东</span>
+                    <h3>山东烟台</h3>
+                    <p>中国现代苹果栽培的发源地之一。烟台苹果色泽鲜艳、酸甜适口，具有浓郁的果香。这里属于暖温带季风气候，雨热同期，利于糖分积累。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>红富士、青香蕉</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>口感脆甜、果形好</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/ningxia/400/250" alt="宁夏灵武苹果" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">宁夏</span>
+                    <h3>宁夏灵武</h3>
+                    <p>位于贺兰山东麓，这里光照资源丰富，蒸发量大，昼夜温差显著，病虫害相对较少，是生产优质无公害苹果的理想区域。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>早熟、晚熟</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>含糖量高、耐储运</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div id="world" class="section-title">
+            <h2>世界其他著名苹果产区</h2>
+            <p>除了中国，世界多个国家和地区也以其独特的地理环境孕育出高品质的苹果。</p>
+        </div>
+
+        <div class="region-grid">
+            <!-- Card 4 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/usa/400/250" alt="美国华盛顿州" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">美国</span>
+                    <h3>华盛顿州</h3>
+                    <p>美国最大的苹果产区，拥有现代化的农业技术和完善的灌溉系统。这里的苹果果肉细脆、风味浓郁，是全球出口量最大的产地之一。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>帝皇、嘎啦</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>大小均匀、货架期长</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/italy/400/250" alt="意大利艾米利亚-罗马涅" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">意大利</span>
+                    <h3>艾米利亚-罗马涅</h3>
+                    <p>意大利最著名的苹果产区之一，位于波河平原。这里的苹果以香气浓郁、口感细腻著称，在欧盟市场享有极高声誉。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>金冠、红玉</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>芳香甜美、果肉致密</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="region-card">
+                <img src="https://picsum.photos/seed/newzealand/400/250" alt="新西兰" class="region-image">
+                <div class="region-content">
+                    <span class="region-tag">新西兰</span>
+                    <h3>霍克斯湾</h3>
+                    <p>南半球著名的苹果产地。得益于纯净的自然环境和严格的生物安全措施，这里的苹果深受国际高端市场欢迎。</p>
+                    <div class="region-details">
+                        <div class="detail-item"><span class="detail-label">主要品种：</span>嘎啦、布瑞本</div>
+                        <div class="detail-item"><span class="detail-label">特点：</span>甜度高、果皮薄</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div id="factors" class="factors-section">
+            <div class="factors-content">
+                <h3>决定苹果产地的核心因素</h3>
+                <p>苹果的口感和品质很大程度上取决于其生长环境。以下是决定优质苹果产地的主要地理与气候条件：</p>
+                <ul class="factors-list">
+                    <li><strong>气候带：</strong> 苹果喜冷凉，主要分布在温带地区。需要足够的积温才能完成生长周期。</li>
+                    <li><strong>光照：</strong> 每日至少需要6-8小时的直射阳光，充足的日照是糖分积累的关键，也是苹果着色的基础。</li>
+                    <li><strong>昼夜温差：</strong> 较大的昼夜温差有利于减少呼吸消耗，促进光合产物（糖分）在果实中积累。</li>
+                    <li><strong>土壤：</strong> 喜欢土层深厚、排水良好、富含有机质的微酸性至中性土壤。</li>
+                </ul>
+            </div>
+            <img src="https://picsum.photos/seed/orchard/600/400" alt="苹果果园风光" class="factors-image">
+        </div>
+
+        <div class="comparison-section">
+            <div class="section-title">
+                <h2>主要产区特性对比</h2>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>产区名称</th>
+                        <th>气候特征</th>
+                        <th>代表品种</th>
+                        <th>市场优势</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>陕西洛川</td>
+                        <td>温带大陆性气候，光照强，昼夜温差大</td>
+                        <td>红富士</td>
+                        <td>产量大，果形标准，耐储运</td>
+                    </tr>
+                    <tr>
+                        <td>山东烟台</td>
+                        <td>暖温带季风气候，雨热同期</td>
+                        <td>红富士、青香蕉</td>
+                        <td>历史底蕴深厚，口感脆甜</td>
+                    </tr>
+                    <tr>
+                        <td>美国华盛顿</td>
+                        <td>地中海式气候，干燥少雨</td>
+                        <td>帝皇、嘎啦</td>
+                        <td>标准化种植，外观精美</td>
+                    </tr>
+                    <tr>
+                        <td>新西兰霍克斯湾</td>
+                        <td>亚热带海洋性气候</td>
+                        <td>布瑞本</td>
+                        <td>无污染，糖度高</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="guide" class="section-title">
+            <h2>如何根据产地选择苹果</h2>
+        </div>
+        <div class="region-grid">
+            <div class="region-card">
+                <div class="region-content">
+                    <h3>看产地认品种</h3>
+                    <p>不同产地的苹果品种特性不同。例如，来自北半球的晚熟苹果（如11月成熟的富士）通常糖分积累更足，适合储存过冬；而南半球产区的苹果则上市时间较晚，填补市场空缺。</p>
+                </div>
+            </div>
+            <div class="region-card">
+                <div class="region-content">
+                    <h3>关注地理标志</h3>
+                    <p>购买时留意是否标注了“地理标志产品”或原产地证明。例如“洛川苹果”或“烟台苹果”拥有特定的品质标准，通常口感更稳定。</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>🍎 苹果产地百科</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">致力于普及农业地理知识，为您提供最准确的产地信息与选购指南。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#china">中国主要产区</a></li>
+                    <li><a href="#world">世界知名产区</a></li>
+                    <li><a href="#factors">种植气候条件</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关资讯</h4>
+                <ul>
+                    <li><a href="#">苹果营养价值解析</a></li>
+                    <li><a href="#">如何挑选优质苹果</a></li>
+                    <li><a href="#">苹果储存保鲜方法</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 苹果产地百科网. All Rights Reserved. 本页面为演示设计，图片来源随机生成。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
